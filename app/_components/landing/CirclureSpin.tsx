@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ArrowDownRightIcon } from "lucide-react"
+import Image from "next/image"
 import { useEffect, useState, useRef, type RefObject, memo, useCallback, useMemo } from "react"
 
 const CircularSpin = memo(
@@ -310,8 +311,8 @@ const CircularSpin = memo(
               .to(
                 arrowRef.current,
                 {
-                  width: "3rem",
-                  height: "3rem",
+                  width: "8.5rem",
+                  height: "8.5rem",
                   fontSize: "10rem",
                   color: "#fee685",
                 },
@@ -441,19 +442,35 @@ const CircularSpin = memo(
           <div
             ref={bgArrowRef}
             className={cn(
-              "text-center z-30 flex justify-center items-center text-primary text-3xl shadow-lg rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300",
+              " w-max text-center z-30 flex justify-center items-center text-primary text-3xl shadow-lg rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300",
               isHovered && "shadow-xl shadow-amber-400/50",
             )}
           >
-            <span className="">
+            {
+              animState  === "middle"? 
+              <Image
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              ref={arrowRef as RefObject<any>}
+              
+              src={"/avatar.png"}
+              alt={"avatar"}
+              width={1000}
+              height={1000}
+              className="w-[10rem] h-[10rem] object-cover rounded-full"
+              
+              />
+              :<span className="">
+
+
               <ArrowDownRightIcon
                 ref={arrowRef}
                 className={cn(
                   "rotate-[-83deg] text-amber-200 transition-all duration-300",
                   isHovered && "text-amber-100 drop-shadow-lg",
                 )}
-              />
+                />
             </span>
+                }
           </div>
         </div>
       </div>

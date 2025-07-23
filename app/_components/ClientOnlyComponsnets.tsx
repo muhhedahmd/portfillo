@@ -74,21 +74,27 @@ export default function ClientOnlyComponents() {
         setScrollProgress(progress)
         console.log({progress})
 
-        if (progress < 0.05  && !isMobile) {
-          newState = "top"
-        } else if (progress >= 0.05 && progress <= 0.7 && !isMobile) {
-          newState = "middle"
-        } else {
-          newState = "bottom"
-        }
+        if(!isMobile){
 
-        if (progress < .3 && isMobile ) {
-          newState = "top"
-        } else if (progress >= 0.3 && progress <= .99 && isMobile) {
+          if (progress < 0.05   ) {
+            newState = "top"
+          } else if ((progress >= 0.05 && progress <= 0.7 )) {
+            newState = "middle"
+          } else {
+            newState = "bottom"
+          }
+        }
+        else {
+
+          
+          if (progress < .3 && isMobile ) {
+            newState = "top"
+        } else if (progress >= 0.3 && progress <= 1.1 && isMobile) {
           newState = "middle"
         } else {
           newState = "bottom"
         }
+      }
 
         if (newState !== lastState) {
           setAnimState(newState)

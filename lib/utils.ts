@@ -98,3 +98,14 @@ export const projects = [
     icon: "💬",
   },
 ]
+
+
+
+export const imageUrls = [
+  {
+    url : "https://laa1n4ou8w.ufs.sh/f/EGQNGZ9NlijpNRK2p3UJRKu1orMglDGCSO8NY930PkzjTixZ"
+  }, 
+  {
+    url  : "https://laa1n4ou8w.ufs.sh/f/EGQNGZ9Nlijp0C5d2e8M7pQBJs6FloVYmNuhtUk3CgG4nRyD"
+  }
+]

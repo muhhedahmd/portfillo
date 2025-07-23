@@ -71,7 +71,7 @@ const InfinityScroll = memo(({ isMobile }: { isMobile: boolean }) => {
         // Create seamless loop animation
         animationsRef.current.skills = gsap.to(skillsContainer, {
           x: -skillsWidth,
-          duration: 20,
+          duration: 50,
           ease: "none",
           repeat: -1,
           modifiers: {
@@ -101,15 +101,17 @@ const InfinityScroll = memo(({ isMobile }: { isMobile: boolean }) => {
         })
       }
     }
+
   }, [isMobile])
 
   return (
     <div ref={containerRef} className="w-full overflow-hidden bg-white">
       {/* Skills Marquee */}
-      <div className="relative overflow-hidden">
+      <div className="relative ">
         <div ref={skillsRef} className="flex w-max gap-4 whitespace-nowrap">
           {/* Create enough items for seamless loop - no dynamic cloning */}
           {[...Array(30)].map((_, i) => (
+
             <div key={`skill-${i}`} className="px-4 py-2 flex-shrink-0" style={{ minWidth: "100px" }}>
               <h3 className="text-2xl font-bold text-black">SKILLS</h3>
             </div>

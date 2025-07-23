@@ -34,6 +34,8 @@ const LandingScene = ({
           </p>
 
           <SplitText
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          animState={animState as any}
             text="Hey there! I&apos;m Mohamed Ahmed."
 
             className="text-2xl font-semibold text-center text-amber-400"
@@ -54,7 +56,7 @@ const LandingScene = ({
           <br/>
        
           <SplitText
-          animState={animState}
+          animState={animState as  "top" | "middle" | "bottom"}
             text={` I'm a full stack developer with 2 years of experience creating dynamic and responsive web applications. 
             <br/>   I enjoy writing clean code, designing intuitive user experiences, and bringing ideas to life through technology.
              <br/> Problem-solving is at the heart of what I do—and I’m always excited to build solutions that make a real impact.`}

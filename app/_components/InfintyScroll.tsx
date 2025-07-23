@@ -45,6 +45,7 @@ const InfinityScroll = memo(({ isMobile }: { isMobile: boolean }) => {
   useEffect(() => {
     return () => {
       // Kill all animations on unmount
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       Object.values(animationsRef.current).forEach((animation) => {
         animation?.kill()
       })

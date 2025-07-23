@@ -1,4 +1,4 @@
-import MeshComp from '@/app/(routes)/test/mesh'
+// import MeshComp from '@/app/(routes)/test/mesh'
 import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import { ACESFilmicToneMapping } from 'three'
@@ -16,7 +16,7 @@ const Waves = () => {
             }}
         >
 
-            <MeshComp />
+            {/* <MeshComp /> */}
 
         </Canvas>
     )

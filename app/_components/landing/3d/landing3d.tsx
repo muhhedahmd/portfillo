@@ -3,7 +3,6 @@ import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import SceneMesh from './SceneMesh'
 import { ACESFilmicToneMapping } from 'three'
-import { Text } from '@react-three/drei'
 
 
 const Landing3d = () => {

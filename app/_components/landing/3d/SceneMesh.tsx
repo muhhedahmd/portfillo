@@ -2,9 +2,9 @@
 
 import { useFrame } from "@react-three/fiber"
 import { useRef } from "react"
-import { type Mesh, type PointLight, PointLightHelper } from "three"
+import { type Mesh, type PointLight } from "three"
 import * as THREE from "three" // Import THREE
-import { useHelper, MeshTransmissionMaterial, Environment, OrbitControls, Box, Sphere } from "@react-three/drei"
+import {  MeshTransmissionMaterial,  } from "@react-three/drei"
 import { useControls, folder } from "leva"
 
 const SceneMesh = () => {
@@ -31,14 +31,14 @@ const SceneMesh = () => {
   })
 
   // Reflective material controls
-  const reflectiveControls = useControls({
-    "Reflective Material": folder({
-      reflectiveMetalness: { value: 1, min: 0, max: 1, step: 0.01 },
-      reflectiveRoughness: { value: 0.1, min: 0, max: 1, step: 0.01 },
-      reflectiveClearcoat: { value: 1, min: 0, max: 1, step: 0.01 },
-      reflectiveColor: { value: "#ffffff" },
-    }),
-  })
+  // const reflectiveControls = useControls({
+  //   "Reflective Material": folder({
+  //     reflectiveMetalness: { value: 1, min: 0, max: 1, step: 0.01 },
+  //     reflectiveRoughness: { value: 0.1, min: 0, max: 1, step: 0.01 },
+  //     reflectiveClearcoat: { value: 1, min: 0, max: 1, step: 0.01 },
+  //     reflectiveColor: { value: "#ffffff" },
+  //   }),
+  // })
 
   // Glass material controls
   const glassControls = useControls({
@@ -55,14 +55,14 @@ const SceneMesh = () => {
   })
 
   // Environment controls
-  const { environmentPreset } = useControls("Environment", {
-    environmentPreset: {
-      value: "sunset",
-      options: ["sunset", "dawn", "night", "warehouse", "forest", "apartment", "studio", "city", "park", "lobby"],
-    },
-  })
+  // const { environmentPreset } = useControls("Environment", {
+  //   environmentPreset: {
+  //     value: "sunset",
+  //     options: ["sunset", "dawn", "night", "warehouse", "forest", "apartment", "studio", "city", "park", "lobby"],
+  //   },
+  // })
 
-  useHelper(lightRef, PointLightHelper, 0.5, "hotpink")
+  // useHelper( PointLightHelper, 0.5, "hotpink")
 
   useFrame(() => {
     if (reflectiveTorusRef.current) {

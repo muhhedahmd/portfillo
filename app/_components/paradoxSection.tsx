@@ -4,7 +4,7 @@ import { projects } from "@/lib/utils"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useCallback, useEffect, useRef, useState } from "react"
+import {  useEffect, useRef, useState } from "react"
 // import Footer from "./footer"
 // import Footer from "./footer"
 
@@ -81,7 +81,7 @@ export default function InstantHorizontalScroll( {
       scale: (scalex) => {
         // More responsive scaling that works in both directions
         
-        const currentScale = isHorizontalScrollComplete * 40
+        // const currentScale = isHorizontalScrollComplete * 40
 
         console.log({scale :letterRef.current?.style , scalex})
         if (isHorizontalScrollComplete === 0) return 1

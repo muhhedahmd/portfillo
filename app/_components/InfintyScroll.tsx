@@ -3,19 +3,19 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { memo, useRef, useEffect } from "react"
-import GsapIcon from "@/public/icons/gsap.svg"
-import FigmaIcon from "@/public/icons/icons8-figma.svg"
-import GitIcon from "@/public/icons/icons8-git.svg"
-import GitHubIcon from "@/public/icons/icons8-github-logo.svg"
-import NextJsIcon from "@/public/icons/icons8-nextjs.svg"
-import PrismaIcon from "@/public/icons/icons8-prisma-orm.svg"
-import ReactIcon60 from "@/public/icons/icons8-react-60.svg"
-import ReduxIcon from "@/public/icons/icons8-redux.svg"
-import threeJs from "@/public/icons/Three.js.svg"
-import SupabaseIcon from "@/public/icons/icons8-supabase.svg"
-import Tailwind24 from "@/public/icons/icons8-tailwind-css-24.svg"
-import shadcn from "@/public/icons/shadcn.svg"
-import TypeScriptIcon from "@/public/icons/icons8-typescript.svg"
+// import GsapIcon from "@/public/icons/gsap.svg"
+// import FigmaIcon from "@/public/icons/icons8-figma.svg"
+// import GitIcon from "@/public/icons/icons8-git.svg"
+// import GitHubIcon from "@/public/icons/icons8-github-logo.svg"
+// import NextJsIcon from "@/public/icons/icons8-nextjs.svg"
+// import PrismaIcon from "@/public/icons/icons8-prisma-orm.svg"
+// import ReactIcon60 from "@/public/icons/icons8-react-60.svg"
+// import ReduxIcon from "@/public/icons/icons8-redux.svg"
+// import threeJs from "@/public/icons/Three.js.svg"
+// import SupabaseIcon from "@/public/icons/icons8-supabase.svg"
+// import Tailwind24 from "@/public/icons/icons8-tailwind-css-24.svg"
+// import shadcn from "@/public/icons/shadcn.svg"
+// import TypeScriptIcon from "@/public/icons/icons8-typescript.svg"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
@@ -26,19 +26,19 @@ const InfinityScroll = memo(({ isMobile }: { isMobile: boolean }) => {
   const animationsRef = useRef<{ skills?: gsap.core.Tween; icons?: gsap.core.Tween }>({})
 
   const svgComponents = [
-    { Component: GsapIcon, name: "Gsap" },
-    { Component: FigmaIcon, name: "Figma" },
-    { Component: GitIcon, name: "Git" },
-    { Component: GitHubIcon, name: "GitHub" },
-    { Component: NextJsIcon, name: "NextJs" },
-    { Component: PrismaIcon, name: "Prisma" },
-    { Component: shadcn, name: "shadcn" },
-    { Component: threeJs, name: "threeJs" },
-    { Component: ReactIcon60, name: "React" },
-    { Component: ReduxIcon, name: "Redux" },
-    { Component: SupabaseIcon, name: "Supabase" },
-    { Component: Tailwind24, name: "Tailwind" },
-    { Component: TypeScriptIcon, name: "TypeScript" },
+   { src: "/icons/gsap.svg", name: "Gsap" },
+  { src: "/icons/icons8-figma.svg", name: "Figma" },
+  { src: "/icons/icons8-git.svg", name: "Git" },
+  { src: "/icons/icons8-github-logo.svg", name: "GitHub" },
+  { src: "/icons/icons8-nextjs.svg", name: "NextJs" },
+  { src: "/icons/icons8-prisma-orm.svg", name: "Prisma" },
+  { src: "/icons/shadcn.svg", name: "shadcn" },
+  { src: "/icons/Three.js.svg", name: "threeJs" },
+  { src: "/icons/icons8-react-60.svg", name: "React" },
+  { src: "/icons/icons8-redux.svg", name: "Redux" },
+  { src: "/icons/icons8-supabase.svg", name: "Supabase" },
+  { src: "/icons/icons8-tailwind-css-24.svg", name: "Tailwind" },
+  { src: "/icons/icons8-typescript.svg", name: "TypeScript" },
   ]
 
   // Cleanup function to prevent memory leaks
@@ -124,14 +124,14 @@ const InfinityScroll = memo(({ isMobile }: { isMobile: boolean }) => {
         <div ref={iconsRef} className="flex w-max gap-8 whitespace-nowrap px-4 py-2">
           {/* Create enough items for seamless loop - no dynamic cloning */}
           {[...Array(6)].map((_, setIndex) =>
-            svgComponents.map(({ Component, name }, iconIndex) => (
+            svgComponents.map(({ src , name } , iconIndex) => (
               <div
                 key={`icon-${name}-${setIndex}-${iconIndex}`}
                 className="flex items-center justify-center flex-shrink-0"
                 style={{ minWidth: "80px" }}
               >
                 <Image
-                  src={Component || "/placeholder.svg"}
+                  src={src || "/placeholder.svg"}
                   alt={name}
                   width={40}
                   height={40}

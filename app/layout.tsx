@@ -10,18 +10,6 @@ const goodtimeFont = localFont({
   fallback: ["Helvetica", "Arial", "sans-serif"],
 })
 
-import type React from "react"
-import type { Metadata } from "next"
-import "./globals.css"
-import localFont from "next/font/local"
-import Footer from "./_components/footer"
-
-const goodtimeFont = localFont({
-  src: "/GOODTIME.woff",
-  display: "swap",
-  fallback: ["Helvetica", "Arial", "sans-serif"],
-})
-
 export const metadata: Metadata = {
   
   title: "Mohamed Ahmed - Full Stack Developer | Next.js React Expert",
@@ -59,28 +47,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://portfillo-puce.vercel.app/",
   },
-}
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className={`overflow-x-hidden ${goodtimeFont.className} antialiased`}>
-        {children}
-
-        <Footer/>
-      </body>
-    </html>
-  )
 }
 
 export default function RootLayout({

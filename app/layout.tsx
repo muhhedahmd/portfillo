@@ -23,6 +23,7 @@ const goodtimeFont = localFont({
 })
 
 export const metadata: Metadata = {
+  
   title: "Mohamed Ahmed - Full Stack Developer | Next.js React Expert",
   description:
     "Mohamed Ahmed Elsaid - Experienced Full Stack Developer specializing in Next.js, React, TypeScript, and modern web technologies. 2+ years building dynamic, responsive web applications.",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
       "Experienced Full Stack Developer with 2+ years building dynamic web applications. Specializing in Next.js, React, TypeScript, and modern web technologies.",
     type: "website",
     locale: "en_US",
-    url: "https://your-domain.com",
+    url: "https://portfillo-puce.vercel.app/",
     siteName: "Mohamed Ahmed Portfolio",
     images: [
       {
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://your-domain.com",
+    canonical: "https://portfillo-puce.vercel.app/",
   },
 }
 

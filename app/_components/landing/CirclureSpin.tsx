@@ -446,21 +446,7 @@ const CircularSpin = memo(
               isHovered && "shadow-xl shadow-amber-400/50",
             )}
           >
-            {
-              animState  === "middle"? 
-              <Image
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              ref={arrowRef as RefObject<any>}
-              
-              src={"/avatar.png"}
-              alt={"avatar"}
-              width={1000}
-              height={1000}
-              className="w-[10rem] h-[10rem] object-cover rounded-full"
-              
-              />
-              :<span className="">
-
+      <span className="">
 
               <ArrowDownRightIcon
                 ref={arrowRef}
@@ -470,7 +456,7 @@ const CircularSpin = memo(
                 )}
                 />
             </span>
-                }
+                
           </div>
         </div>
       </div>

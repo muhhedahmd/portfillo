@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ArrowDownRightIcon } from "lucide-react"
-import Image from "next/image"
 import { useEffect, useState, useRef, type RefObject, memo, useCallback, useMemo } from "react"
 
 const CircularSpin = memo(

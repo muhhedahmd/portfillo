@@ -12,6 +12,7 @@ const Header = () => {
           MOHAMED<br />AHMED
         </h1>
         <p className="text-[0.65rem] md:text-xs font-semibold tracking-widest uppercase mt-2 opacity-80">Full Stack Engineer</p>
+
       </div>
 
       {/* Navigation Links (Top Right or next to branding) */}

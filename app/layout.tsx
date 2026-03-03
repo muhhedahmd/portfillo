@@ -10,8 +10,7 @@ const goodtimeFont = localFont({
 })
 
 export const metadata: Metadata = {
-
-  title: "Mohamed Ahmed El Sayed - Full Stack Engineer | Next.js Expert",
+  title: "Mohamed Ahmed - Full Stack Developer | Next.js React Expert",
   description:
     "Mohamed Ahmed El Sayed - Full-stack Engineer and Web Developer with a strong focus on building clean, modern, and responsive interfaces. Specializing in Next.js, React, Express.js, and PostgreSQL.",
   keywords:

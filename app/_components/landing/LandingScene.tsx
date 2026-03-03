@@ -26,7 +26,7 @@ const LandingScene = () => {
     <section id="hero" ref={containerRef} className="w-full min-h-screen flex flex-col justify-end pb-12 md:pb-24 px-6 md:px-10 bg-[#fafafa]">
 
       {/* Massive Typography Hero */}
-      <div className="flex flex-col gap-0 uppercase font-black tracking-tighter leading-[0.85] text-[#111111]">
+      <div className="flex flex-col -mt-[10rem] md:mt-0 gap-0 uppercase font-black tracking-tighter leading-[0.85] text-[#111111]">
         <div className="overflow-hidden">
           <h1 className="hero-line text-[12vw] md:text-[12vw] m-0 p-0 transition-transform duration-700 hover:scale-[1.02] cursor-default origin-left">
             FULL STACK
@@ -54,7 +54,7 @@ const LandingScene = () => {
         </div>
 
         {/* Circular Spin (Right Aligned) */}
-        <div className="lg:col-span-4 flex justify-start md:justify-end hero-line">
+        <div className="lg:col-span-4 md:flex justify-start md:justify-end hero-line hidden ">
           <div className="hover:scale-105 transition-transform duration-500 cursor-pointer">
             <CirclureSpin />
           </div>

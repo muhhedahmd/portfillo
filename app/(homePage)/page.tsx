@@ -1,22 +1,29 @@
-import gsap from "gsap"
-// import { Suspense } from "react"
-import ScrollTrigger from "gsap/ScrollTrigger"
-// import dynamic from "next/dynamic"
-// Lazy load client components to prevent hydration issues
-import ClientWrapper from "../_components/ClientWraper"
-
-
-gsap.registerPlugin(ScrollTrigger)
+import Preloader from "../_components/Preloader"
+import SmoothScrolling from "../_components/lenisScroll/lenis"
+import Header from "../_components/landing/Header/Header"
+import LandingScene from "../_components/landing/LandingScene"
+import InfinityScroll from "../_components/InfinityScroll"
+import ExperienceSection from "../_components/ExperienceSection"
+import EducationAwards from "../_components/EducationAwards"
+import ProjectsSection from "../_components/ProjectsSection"
+import Footer from "../_components/footer"
 
 export default function Home() {
   return (
     <>
-      {/* SEO Content - Server Rendered */}
-
-
-      {/* Client-only interactive components */}
-              <ClientWrapper/>
-
+      <Preloader>
+        <SmoothScrolling ref={null}>
+          <Header />
+          <main className="w-full min-h-screen relative overflow-x-hidden">
+            <LandingScene />
+            <InfinityScroll />
+            <ExperienceSection />
+            <EducationAwards />
+            <ProjectsSection />
+            <Footer />
+          </main>
+        </SmoothScrolling>
+      </Preloader>
     </>
   )
 }

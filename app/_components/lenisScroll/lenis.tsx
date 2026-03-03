@@ -2,21 +2,20 @@
 
 import ReactLenis, { LenisRef } from "lenis/react";
 
-function SmoothScrolling({ children  , ref } : {
-    children: React.ReactNode , 
-    ref: React.ForwardedRef<LenisRef>
+function SmoothScrolling({ children, ref }: {
+  children: React.ReactNode,
+  ref: React.ForwardedRef<LenisRef>
 }) {
   return (
-    <ReactLenis ref={ref} root 
-    options={{
-      lerp: 0.9,           // Lower lerp value for smoother scrolling
-        duration: .3,         // Slightly faster duration
+    <ReactLenis ref={ref} root
+      options={{
+        lerp: 0.1,           // Standard value for smooth scrolling
+        duration: 1.2,       // Standard duration
         smoothWheel: true,
-        // smoothTouch: true,    // Enable smooth scrolling on touch devices
-        touchMultiplier: 1.5,  // Adjust touch sensitivity
-        wheelMultiplier: .4,  // Adjust wheel sensitivity
+        touchMultiplier: 1.5,
+        wheelMultiplier: 1,
         orientation: "vertical"
-    }}
+      }}
     >
       {children}
     </ReactLenis>

@@ -45,13 +45,13 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fafafa;
+    --foreground: #111111;
   }
 }
 
 :root {
-  --angleBorder : 0deg;
+  --angleBorder: 0deg;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -87,148 +87,139 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #fafafa;
+  --foreground: #111111;
+  /* Enforce light theme everywhere for this specific design */
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#fafafa] text-[#111111];
   }
 }
 
 
 
-@property --angle{
+@property --angle {
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
 }
+
 /* .glow-border{
   position: relative;
   z-index: 100;
   background-color: aquamarine;
 } */
-.glow-border::after , .glow-border::before{
+.glow-border::after,
+.glow-border::before {
   /* --angle :0deg ; */
-  content:  "";
+  content: "";
   position: absolute;
   z-index: -10;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
 
-  height: 100% ;
-  width: 100% ;
-  background: red ;
+  height: 100%;
+  width: 100%;
+  background: red;
   padding: 1rem;
   /* border: 2px solid #ddd; */
- border-radius: 999px;
- background: conic-gradient(
-  from var(--angle),
-  #a600ff,
-  #00c3ff,
-  #fff,
-  #a600ff,
-  /* #ff7b00, */
-  /* #ff006a, */
-  #00f0ff
-);
- 
-animation-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
-animation: spinGlowBorder 10s linear infinite;
-}
-.glow-border::before{
+  border-radius: 999px;
+  background: conic-gradient(from var(--angle),
+      #a600ff,
+      #00c3ff,
+      #fff,
+      #a600ff,
+      /* #ff7b00, */
+      /* #ff006a, */
+      #00f0ff);
 
-filter: blur(10px);
-opacity: .5;
- 
-} 
+  animation-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+  animation: spinGlowBorder 10s linear infinite;
+}
+
+.glow-border::before {
+
+  filter: blur(10px);
+  opacity: .5;
+
+}
+
 @keyframes spinGlowBorder {
-  from{
-    --angle :0deg
-
-  }to{
-    --angle :360deg
-
+  from {
+    --angle: 0deg
   }
-  
+
+  to {
+    --angle: 360deg
+  }
+
 }
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
 /* For IE, Edge and Firefox */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 
 html {
-  font-size: 16px; /* Default size */
+  font-size: 16px;
+  /* Default size */
 }
 
-@media (max-width: 1200px), (max-height: 800px) {
+@media (max-width: 1200px),
+(max-height: 800px) {
   html {
-      font-size: 14.5px; /* Adjust font size for smaller screens or shorter heights */
+    font-size: 14.5px;
+    /* Adjust font size for smaller screens or shorter heights */
   }
 }
 
-@media (max-width: 768px), (max-height: 600px) {
+@media (max-width: 768px),
+(max-height: 600px) {
   html {
-      font-size: 14px; /* Smaller font size for smaller viewports */
+    font-size: 14px;
+    /* Smaller font size for smaller viewports */
   }
 }
 
-@media (max-width: 480px), (max-height: 400px) {
+@media (max-width: 480px),
+(max-height: 400px) {
   html {
-      font-size: 15px; /* For very small screens or very short heights */
+    font-size: 15px;
+    /* For very small screens or very short heights */
   }
 }
 
 
-body{
-  background-color: #111;
+body {
+  background-color: #fafafa;
+  color: #111111;
 }
 
-/* Infinity Scroll Animations */
+/* Base link transition */
+a {
+  transition: all 0.3s ease;
+}
+
 @keyframes scroll-left-skills {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -238,6 +229,7 @@ body{
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -260,8 +252,37 @@ body{
   animation-play-state: paused;
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 120s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 100s linear infinite;
+}
+
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
+
   .skills-marquee,
   .icons-marquee {
     animation: none;

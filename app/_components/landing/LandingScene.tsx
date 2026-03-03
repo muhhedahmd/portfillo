@@ -1,91 +1,69 @@
-import type { RefObject } from "react"
-import CirclureSpin from "../../_components/landing/CirclureSpin"
-import SplitText from "../splitText"
+"use client"
 
-const LandingScene = ({
-  headerRef,
-  lineRefs,
-  animState,
-  scrollProgress,
-  isMobile,
-}: {
-  isMobile?: boolean
-  scrollProgress: number
-  headerRef: RefObject<HTMLDivElement | null>
-  lineRefs: RefObject<HTMLElement[]>
-  animState: "top" | "middle" | "bottom" | "top2"
-}) => {
+import { useEffect, useRef } from "react"
+import gsap from "gsap"
+import CirclureSpin from "./CirclureSpin"
+
+const LandingScene = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".hero-line", {
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        duration: 1.2,
+        ease: "power4.out",
+        delay: 2.4 // Wait for preloader transition
+      })
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="w-full flex items-center justify-center  bg-black  py-[4rem] ">
-      <div className="bg-black text-white flex justify-start items-center mt-[4rem]   container">
+    <section id="hero" ref={containerRef} className="w-full min-h-screen flex flex-col justify-end pb-12 md:pb-24 px-6 md:px-10 bg-[#fafafa]">
 
-        <div className="relative z-100 space-y-1 w-full">
-          <p
-            ref={(el) => {
-              if (el) lineRefs.current[0] = el
-            }}
-            style={{
-              textShadow: "2px 3px 0px #fefeef ",
-              display: "inline-block",
-            }}
-            className="text-4xl font-bold text-amber-400"
-          >
-            Full Stack Developer
+      {/* Massive Typography Hero */}
+      <div className="flex flex-col gap-0 uppercase font-black tracking-tighter leading-[0.85] text-[#111111]">
+        <div className="overflow-hidden">
+          <h1 className="hero-line text-[12vw] md:text-[12vw] m-0 p-0 transition-transform duration-700 hover:scale-[1.02] cursor-default origin-left">
+            FULL STACK
+          </h1>
+        </div>
+        <div className="overflow-hidden">
+          <h1 className="hero-line text-[12vw] md:text-[12vw] m-0 p-0 text-right transition-transform duration-700 hover:scale-[1.02] cursor-default origin-right">
+            ENGINEER.
+          </h1>
+        </div>
+      </div>
+
+      {/* Lower Section Grid: Intro Text (Left) & Spinner (Right) */}
+      <div className="mt-12 md:mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-end">
+
+        {/* Intro Text / Sub-headline */}
+        <div className="lg:col-span-8 overflow-hidden">
+          <p className="hero-line text-lg md:text-2xl font-medium text-[#333] leading-relaxed max-w-3xl">
+            I&apos;m <strong>Mohamed Ahmed El Sayed</strong>. I engineer high-performance web applications and design
+            uncompromising digital experiences. Specializing in the modern JavaScript ecosystem—specifically React,
+            Next.js, and Node.js—I build scalable platforms from end-to-end. By rigorously marrying robust, type-safe
+            {/* API architectures with immersive frontend animations, I deliver interfaces that are not just highly
+            functional, but viscerally engaging. */}
           </p>
-
-          <SplitText
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          animState={animState as any}
-            text="Hey there! I&apos;m Mohamed Ahmed."
-
-            className="text-2xl font-semibold text-center text-amber-400"
-            delay={100}
-            duration={0.6}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="center"
-
-
-          />
-
-
-          <br/>
-       
-          <SplitText
-          animState={animState as  "top" | "middle" | "bottom"}
-            text={` I'm a full stack developer with 2 years of experience creating dynamic and responsive web applications. 
-            <br/>   I enjoy writing clean code, designing intuitive user experiences, and bringing ideas to life through technology.
-             <br/> Problem-solving is at the heart of what I do—and I’m always excited to build solutions that make a real impact.`}
-            className="text-2xl font-semibold text-center"
-            delay={100}
-            duration={0.6}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="center"
-
-
-          />
-       
-
-          <p className="text-lg max-w-xl"> </p>
         </div>
 
-        <CirclureSpin isMobile={isMobile} headerRef={headerRef} scrollProgress={scrollProgress} animState={animState} />
+        {/* Circular Spin (Right Aligned) */}
+        <div className="lg:col-span-4 flex justify-start md:justify-end hero-line">
+          <div className="hover:scale-105 transition-transform duration-500 cursor-pointer">
+            <CirclureSpin />
+          </div>
+        </div>
+
       </div>
-    </div>
+
+    </section>
   )
 }
 
 export default LandingScene
-
-// ref={(el) => {
-//   if (el) lineRefs.current[3] = el
-// }}

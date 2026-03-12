@@ -21,11 +21,11 @@ export default function Footer() {
 
           <div className="flex flex-col gap-2">
             <p className="text-xs font-bold uppercase tracking-widest opacity-50 mb-2">Socials</p>
+            <Link href="http://linkedin.com/in/mohamed-ahmed-34a379212/" target="_blank" rel="noopener noreferrer" className="text-xl md:text-2xl font-bold uppercase hover:opacity-50 transition-opacity">
+              LINKEDIN
+            </Link>
             <Link href="https://github.com/muhhedahmd" target="_blank" rel="noopener noreferrer" className="text-xl md:text-2xl font-bold uppercase hover:opacity-50 transition-opacity">
               GITHUB
-            </Link>
-            <Link href="https://www.linkedin.com/in/mohamed-ahmed" target="_blank" rel="noopener noreferrer" className="text-xl md:text-2xl font-bold uppercase hover:opacity-50 transition-opacity">
-              LINKEDIN
             </Link>
           </div>
 
